@@ -14,8 +14,8 @@
 		<a href="/rsvp">RSVP</a>
 	</div>
 	<div class="registriesContainer">
-		<a href="" class="registryLink">Registry (Amazon)</a>
 		<a href="" class="registryLink">Registry (Williams Sonoma)</a>
+		<a href="" class="registryLink">Registry (Amazon)</a>
 	</div>
 	<div class="intPageLink">
 		<a href="/faq">FAQs</a>
