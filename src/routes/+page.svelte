@@ -10,16 +10,14 @@
 	</p>
 </div>
 <div class="navContainer">
-	<div class="intPageLink">
-		<a href="/rsvp">RSVP</a>
-	</div>
+	<!-- TODO: Determine if links should be clicked from text or the whole region -->
+
+	<a href="/rsvp" class="intPageLink">RSVP</a>
 	<div class="registriesContainer">
 		<a href="" class="registryLink">Registry (Williams Sonoma)</a>
 		<a href="" class="registryLink">Registry (Amazon)</a>
 	</div>
-	<div class="intPageLink">
-		<a href="/faq">FAQs</a>
-	</div>
+	<a href="/faq" class="intPageLink">FAQ</a>
 </div>
 
 <style>
@@ -79,5 +77,13 @@
 		text-align: center;
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 5px;
+	}
+	.intPageLink:hover {
+		transform: scale(1.1);
+		box-shadow: 0 0 10px 5px #4f6455;
+	}
+	.registryLink:hover {
+		transform: scale(1.1);
+		box-shadow: 0 0 10px 5px #806668;
 	}
 </style>
