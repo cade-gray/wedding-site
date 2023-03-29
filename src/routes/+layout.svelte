@@ -1,3 +1,7 @@
+<script>
+	export const ssr = false;
+</script>
+
 <div class="container">
 	<div>
 		<a href="/">
