@@ -6,7 +6,7 @@
 		labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 		laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
 		voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-		non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		non proident, sunt in culpa qui officia deserunt mollit anim id est laborm.
 	</p>
 </div>
 <div class="navContainer">
@@ -14,8 +14,16 @@
 
 	<a href="/rsvp" class="intPageLink">RSVP</a>
 	<div class="registriesContainer">
-		<a href="" class="registryLink">Registry (Williams Sonoma)</a>
-		<a href="" class="registryLink">Registry (Amazon)</a>
+		<a
+			href="https://www.williams-sonoma.com/registry/qvtdq7xv89/registry-list.html"
+			target="_blank"
+			class="registryLink">Registry (Williams Sonoma)</a
+		>
+		<a
+			href="https://www.amazon.com/wedding/katie-oakes-cade-gray--october-2023/registry/1EFU39WJ0ZUB5"
+			target="_blank"
+			class="registryLink">Registry (Amazon)</a
+		>
 	</div>
 	<a href="/faq" class="intPageLink">FAQ</a>
 </div>
