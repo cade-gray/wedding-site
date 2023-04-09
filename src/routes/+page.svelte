@@ -1,4 +1,29 @@
 <!-- Landing Page -->
+<script>
+	var targetDate = new Date('October 28, 2023 00:00:00').getTime();
+	var now = new Date().getTime();
+	var timeLeft = targetDate - now;
+	var months = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 30));
+	var days = Math.floor((timeLeft % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+	var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+	function countdown() {
+		setInterval(() => {
+			now = new Date().getTime();
+			timeLeft = targetDate - now;
+			months = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 30));
+			days = Math.floor((timeLeft % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+			hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+			seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+		}, 1000);
+	}
+
+	countdown();
+</script>
+
 <div class="storyContainer">
 	<h2>Our Story</h2>
 	<p>
@@ -8,6 +33,36 @@
 		voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
 		non proident, sunt in culpa qui officia deserunt mollit anim id est laborm.
 	</p>
+</div>
+<div class="countdownContainer">
+	<h2>
+		{#if months == 1}
+			{months} Month
+		{:else}
+			{months} Months
+		{/if}
+		{#if days == 1}
+			{days} Day
+		{:else}
+			{days} Days
+		{/if}
+		{#if hours == 1}
+			{hours} Hour
+		{:else}
+			{hours} Hours
+		{/if}
+		{#if minutes == 1}
+			{minutes} Minute
+		{:else}
+			{minutes} Minutes
+		{/if}
+		{#if seconds == 1}
+			{seconds} Second
+		{:else}
+			{seconds} Seconds
+		{/if}
+		until the wedding day.
+	</h2>
 </div>
 <div class="navContainer">
 	<!-- TODO: Determine if links should be clicked from text or the whole region -->
@@ -43,6 +98,11 @@
 		flex-direction: column;
 		align-items: center;
 		color: #222;
+	}
+	.countdownContainer {
+		display: flex;
+		text-align: center;
+		padding: 20px;
 	}
 	.navContainer {
 		padding: 20px;
