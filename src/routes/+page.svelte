@@ -25,13 +25,11 @@
 </script>
 
 <div class="storyContainer">
-	<h2>Our Story</h2>
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-		laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-		voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-		non proident, sunt in culpa qui officia deserunt mollit anim id est laborm.
+		We met 6 years ago in an intro to philosophy class as college freshmen at Radford University. We
+		were lucky enough to be randomly put in the same project group that worked together the entire
+		semester. 6 years, one dog, one apartment, one cat and one house later we are so thrilled to be
+		getting married this year and hope that you can join us for the celebration!
 	</p>
 </div>
 <div class="countdownContainer">
@@ -91,13 +89,14 @@
 		margin-left: 10vw;
 		margin-right: 10vw;
 		padding: 20px;
-		background: #d2cfc6;
+		background: #d2cfc6cf;
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 5px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		color: #222;
+		font-size: 20px;
 	}
 	.countdownContainer {
 		display: flex;
