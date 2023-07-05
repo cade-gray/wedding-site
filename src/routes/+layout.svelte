@@ -147,4 +147,9 @@
 	.header:hover {
 		transform: scale(1.1);
 	}
+	@media screen and (max-width: 800px) {
+		.container {
+			margin: 10px;
+		}
+	}
 </style>
