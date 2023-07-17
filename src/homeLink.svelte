@@ -6,7 +6,7 @@
 		font-size: 1.3rem;
 		width: 90%;
 		height: 50px;
-		margin: 10px;
+		margin-bottom: 10px;
 		padding: 10px;
 		display: flex;
 		align-items: center;

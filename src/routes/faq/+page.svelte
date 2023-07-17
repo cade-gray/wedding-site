@@ -105,7 +105,9 @@
 			<br />
 		</ul>
 	</ol>
-	<HomeLink />
+	<div class="hlContainer">
+		<HomeLink />
+	</div>
 </div>
 
 <style>
@@ -127,5 +129,13 @@
 	ul {
 		list-style-type: none;
 		padding-inline-start: 0px;
+	}
+	.hlContainer {
+		width: 25%;
+	}
+	@media screen and (max-width: 800px) {
+		.hlContainer {
+			width: 100%;
+		}
 	}
 </style>

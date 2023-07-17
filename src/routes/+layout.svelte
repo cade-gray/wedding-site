@@ -49,5 +49,8 @@
 		.contentContainer {
 			margin: 10px;
 		}
+		.mainContainer {
+			padding: 0px;
+		}
 	}
 </style>
