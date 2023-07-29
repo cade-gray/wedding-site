@@ -2,17 +2,24 @@
 	import HomeLink from '../../homeLink.svelte';
 	var submitted = false;
 	var submitterFirstName = '';
+	var attendingYNValue = 'Y';
+	var dietRestValue = null;
+	var p1YNValue = null;
+	var p1NameValue = null;
+	var childrenYNValue = null;
+	var childCountValue = 0;
 	function submitForm() {
 		// Get the input field values
 		var firstNameValue = document.getElementById('first-name').value.trim();
 		var lastNameValue = document.getElementById('last-name').value.trim();
 		var emailValue = document.getElementById('email').value.trim();
-		var dietRestValue = document.getElementById('diet-rest').value;
-		var p1YNValue = document.getElementById('plus-one').value;
-		var p1NameValue = document.getElementById('p1-name').value;
-		var childrenYNValue = document.getElementById('children').value;
-		var childCountValue = document.getElementById('child-count').value;
-
+		if (attendingYNValue === 'Y') {
+			dietRestValue = document.getElementById('diet-rest').value;
+			p1YNValue = document.getElementById('plus-one').value;
+			p1NameValue = document.getElementById('p1-name').value;
+			childrenYNValue = document.getElementById('children').value;
+			childCountValue = document.getElementById('child-count').value;
+		}
 		if (
 			firstNameValue === '' ||
 			lastNameValue === '' ||
@@ -22,7 +29,7 @@
 			childCountValue < 0
 		) {
 			alert(
-				'Please fill in all the required fields (First Name, Last Name, Email, and amount of children attending).'
+				'Please fill in all the required fields (First Name, Last Name, Email, or amount of children if you are attending.).'
 			);
 		} else {
 			// Submit the form or perform any other action here
@@ -30,6 +37,7 @@
 				firstName: firstNameValue,
 				lastName: lastNameValue,
 				email: emailValue,
+				attendingYN: attendingYNValue,
 				dietRest: dietRestValue,
 				plusOneYN: p1YNValue,
 				plusOneName: p1NameValue,
@@ -72,41 +80,77 @@
 			<input type="text" name="last-name" id="last-name" required />
 			<label for="email"><span class="required">*</span>Email</label>
 			<input type="email" name="email" id="email" required />
-			<label for="diet-rest">Any Dietary Restrictions?</label>
-			<input type="text" name="diet-rest" id="diet-rest" />
-			<label for="plus-one"><span class="required">*</span>Plus one?</label>
+			<label for="attending"><span class="required">*</span>Will you be attending?</label>
 			<div>
 				<div>
-					<input type="radio" name="plus-one" id="plus-one" value="Y" checked />
-					<label for="plus-one">Yes</label>
+					<input
+						type="radio"
+						name="attending"
+						id="attending"
+						value="Y"
+						bind:group={attendingYNValue}
+						checked
+					/>
+					<label for="attending">Yes</label>
 				</div>
 				<div>
-					<input type="radio" name="plus-one" id="plus-one" value="N" />
-					<label for="plus-one">No</label>
+					<input
+						type="radio"
+						name="attending"
+						id="attending"
+						value="N"
+						bind:group={attendingYNValue}
+					/>
+					<label for="attending">No</label>
 				</div>
 			</div>
-			<label for="p1-name">If plus one, their first and last name:</label>
-			<input type="text" name="p1-name" id="p1-name" />
-			<label for="children"><span class="required">*</span>Bringing Children?</label>
-			<div>
+			{#if attendingYNValue == 'N'}
+				<br />
+				<button on:click={submitForm} class="submitButt">Submit</button>
+			{:else}
+				<label for="diet-rest">Any Dietary Restrictions?</label>
+				<input type="text" name="diet-rest" id="diet-rest" />
+				<label for="plus-one"><span class="required">*</span>Plus one?</label>
 				<div>
-					<input type="radio" name="children" id="children" value="N" checked />
-					<label for="children">No</label>
+					<div>
+						<input type="radio" name="plus-one" id="plus-one" value="Y" checked />
+						<label for="plus-one">Yes</label>
+					</div>
+					<div>
+						<input type="radio" name="plus-one" id="plus-one" value="N" />
+						<label for="plus-one">No</label>
+					</div>
 				</div>
+				<label for="p1-name">If plus one, their first and last name:</label>
+				<input type="text" name="p1-name" id="p1-name" />
+				<label for="children"><span class="required">*</span>Bringing Children?</label>
 				<div>
-					<input type="radio" name="children" id="children" value="Y" />
-					<label for="children">Yes</label>
+					<div>
+						<input type="radio" name="children" id="children" value="N" checked />
+						<label for="children">No</label>
+					</div>
+					<div>
+						<input type="radio" name="children" id="children" value="Y" />
+						<label for="children">Yes</label>
+					</div>
 				</div>
-			</div>
-			<label for="children"><span class="required">*</span>If bringing children, how many?</label>
-			<input type="number" name="child-count" id="child-count" value="0" />
-			<br />
-			<button on:click={submitForm} class="submitButt">Submit</button>
+				<label for="children"><span class="required">*</span>If bringing children, how many?</label>
+				<input type="number" name="child-count" id="child-count" value="0" />
+				<br />
+				<button on:click={submitForm} class="submitButt">Submit</button>
+			{/if}
 		{:else}
-			<h2 class="thanksText">
-				Thank you for RSVPing {submitterFirstName}! We look forward to seeing you on October 28th,
-				2023! Please visit the FAQ page for additonal information
-			</h2>
+			{#if attendingYNValue === 'Y'}
+				<h2 class="thanksText">
+					Thank you for RSVPing {submitterFirstName}! We look forward to seeing you on October 28th,
+					2023! Please visit the FAQ page for additonal information
+				</h2>
+			{:else if attendingYNValue === 'N'}
+				<h2 class="thanksText">
+					Thank you for RSVPing {submitterFirstName}! We wish you could make it but appreciate you
+					taking the time to let us know.
+				</h2>
+			{/if}
 			<HomeLink />
 		{/if}
 	</div>
@@ -123,6 +167,7 @@
 		padding: 1rem;
 		border-radius: 5px;
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		width: 40vw;
 	}
 	input {
 		border-radius: 5px;
@@ -131,9 +176,13 @@
 		height: 1.3rem;
 		border: solid 1.5px #222;
 		margin-bottom: 5px;
+		text-align: center;
 	}
 	#email {
-		width: 80%;
+		width: 60%;
+	}
+	#diet-rest {
+		width: 40%;
 	}
 	#p1-name {
 		width: 60%;
@@ -156,5 +205,10 @@
 	}
 	.thanksText {
 		text-align: center;
+	}
+	@media screen and (max-width: 800px) {
+		.form {
+			width: 75vw;
+		}
 	}
 </style>
