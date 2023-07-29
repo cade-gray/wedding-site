@@ -1,6 +1,6 @@
 # Wedding Website
 
-This was built for mine and my partner's wedding. View the site [here] (https://wedding.cadegray.dev "Our wedding website")
+This was built for mine and my partner's wedding. View the site [here](https://wedding.cadegray.dev 'Our wedding website')
 This can be used as a template for future wedding websites (with proper credit) if desired.
 This is built using SvelteKit and interacts with an API that I built using expressjs which interacts with a mysql DB on planetscale.
 A video explainging the process of building this will be made in the future and posted on my youtube channel.
