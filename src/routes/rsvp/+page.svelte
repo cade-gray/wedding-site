@@ -40,7 +40,7 @@
 			const jsonData = JSON.stringify(formData);
 
 			// Make a POST request using the fetch() function
-			fetch('https://api.cadegray.dev/wedding', {
+			fetch('https://api.cadegray.dev/wedding/guest', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
