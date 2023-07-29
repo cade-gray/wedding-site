@@ -209,6 +209,7 @@
 		border-radius: 5px;
 		border: solid 1.5px #222;
 		text-decoration: none;
+		color: #222;
 	}
 	.submitButt:hover {
 		transform: scale(1.1);
