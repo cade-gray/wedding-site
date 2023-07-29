@@ -26,7 +26,7 @@
 
 <div class="storyContainer">
 	<p>
-		We met 6 years ago in an intro to philosophy class as college freshmen at Radford University. We
+		We met 6 years ago in an intro to sociology class as college freshmen at Radford University. We
 		were lucky enough to be randomly put in the same project group that worked together the entire
 		semester. 6 years, one dog, one apartment, one cat and one house later we are so thrilled to be
 		getting married this year and hope that you can join us for the celebration!
