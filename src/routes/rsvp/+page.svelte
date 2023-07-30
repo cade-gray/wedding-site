@@ -8,7 +8,7 @@
 	var dietRestValue = null;
 	var p1YNValue = 'N';
 	var p1NameValue = null;
-	var childrenYNValue = null;
+	var childrenYNValue = 'N';
 	var childCountValue = 0;
 	function submitForm() {
 		if (
@@ -121,8 +121,10 @@
 						<label for="plus-one">Yes</label>
 					</div>
 				</div>
-				<label for="p1-name">If plus one, their first and last name:</label>
-				<input type="text" name="p1-name" id="p1-name" bind:value={p1NameValue} />
+				{#if p1YNValue === 'Y'}
+					<label for="p1-name">What is your plus one's first and last name?:</label>
+					<input type="text" name="p1-name" id="p1-name" bind:value={p1NameValue} />
+				{/if}
 				<label for="children"><span class="required">*</span>Bringing Children?</label>
 				<div>
 					<div>
@@ -147,8 +149,13 @@
 						<label for="children">Yes</label>
 					</div>
 				</div>
-				<label for="children"><span class="required">*</span>If bringing children, how many?</label>
-				<input type="number" name="child-count" id="child-count" bind:value={childCountValue} />
+				{#if childrenYNValue === 'Y'}
+					<label for="children"
+						><span class="required">*</span>
+						If bringing children, how many?
+					</label>
+					<input type="number" name="child-count" id="child-count" bind:value={childCountValue} />
+				{/if}
 				<br />
 				<button on:click={submitForm} class="submitButt">Submit</button>
 			{/if}
