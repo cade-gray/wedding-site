@@ -43,8 +43,7 @@
 		align-items: center;
 		text-align: center;
 	}
-	h1,
-	h2 {
+	h1 {
 		color: #222;
 	}
 	a {
