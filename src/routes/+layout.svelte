@@ -1,6 +1,5 @@
 <script>
 	import '@fontsource-variable/playfair-display';
-	import RingLogo from '../ringLogo.svelte';
 	import InitialLogo from '../initialLogo.svelte';
 </script>
 
