@@ -8,7 +8,10 @@
 	<div class="contentContainer">
 		<div class="header">
 			<a href="/">
-				<RingLogo />
+				<h1>
+					<span class="name" id="cd">Cade</span> &amp; <span class="name" id="kt">Katie</span>
+				</h1>
+				<h1 class="date">October 28<sup>th</sup>, 2023</h1>
 			</a>
 		</div>
 		<slot />
@@ -35,15 +38,33 @@
 	}
 	.header {
 		padding: 2em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	h1,
+	h2 {
+		color: #222;
 	}
 	a {
 		text-decoration: none;
 	}
-	h1 {
-		color: black;
-	}
 	.header:hover {
 		transform: scale(1.1);
+	}
+	.name {
+		font-size: 3rem;
+		font-weight: lighter;
+	}
+	#cd {
+		text-shadow: 2px 1px 1px #6e9277;
+	}
+	#kt {
+		text-shadow: 2px 1px 1px #bf8e91;
+	}
+	.date {
+		text-shadow: 2px 1px 1px #fff;
 	}
 	@media screen and (max-width: 800px) {
 		.contentContainer {
