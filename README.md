@@ -5,7 +5,7 @@ This can be used as a template for other couple's future wedding websites if des
 The app is built using SvelteKit and implements the static adaptor, so this can be deployed as a SPA with static files.
 It interacts with an API that I built using ExpressJS which interacts with a MySQL DB on PlanetScale.
 I have it deployed on my person digital ocean droplet on a nginx server block.
-SVG's are also a heavily used in here for the design aspect such as the logos and the background. All was done using Figma and a Wacom tablet.
+Design is vanilla CSS and the background is an SVG I threw together using Figma and a Wacom tablet.
 A video explaining the process of building this will be made in the future and posted on my youtube channel.
 
 ## Developing
