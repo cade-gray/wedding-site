@@ -1,27 +1,45 @@
 <!-- Landing Page -->
 <script>
-	var targetDate = new Date('October 28, 2023 00:00:00').getTime();
-	var now = new Date().getTime();
-	var timeLeft = targetDate - now;
-	var months = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 30));
-	var days = Math.floor((timeLeft % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-	var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-	var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+	let targetDate = new Date('October 28, 2023 16:30:00').getTime();
+	let countingDown = true;
+	let loaded = false;
+	let interval;
 
-	function countdown() {
-		setInterval(() => {
-			now = new Date().getTime();
-			timeLeft = targetDate - now;
-			months = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 30));
-			days = Math.floor((timeLeft % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-			hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-			seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-		}, 1000);
+	let elapsedTime = {
+		years: 0,
+		months: 0,
+		days: 0,
+		hours: 0,
+		minutes: 0,
+		seconds: 0
+	};
+
+	function updateElapsedTime() {
+		const now = new Date().getTime();
+		let timeDifference = countingDown ? targetDate - now : now - targetDate;
+
+		if (timeDifference <= 0) {
+			countingDown = false;
+			timeDifference = now - targetDate;
+		}
+		loaded = true;
+		elapsedTime = {
+			years: Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365)),
+			months: Math.floor(
+				(timeDifference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30)
+			),
+			days: Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24)),
+			hours: Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+			minutes: Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60)),
+			seconds: Math.floor((timeDifference % (1000 * 60)) / 1000)
+		};
 	}
 
-	countdown();
+	function startCounter() {
+		interval = setInterval(updateElapsedTime, 1000);
+	}
+
+	startCounter();
 </script>
 
 <div class="storyContainer">
@@ -34,32 +52,61 @@
 </div>
 <div class="countdownContainer">
 	<h2>
-		{#if months == 1}
-			{months} Month
+		{#if !loaded}
+			<div class="loadingText">0 Days 0 Hours 0 Minutes 0 Seconds until we get married!</div>
+		{:else if countingDown}
+			{#if elapsedTime.years > 0}
+				{elapsedTime.years}
+				{#if elapsedTime.years === 1}Year{:else}Years{/if}{' '}
+			{/if}
+			{#if elapsedTime.months > 0}
+				{elapsedTime.months}
+				{#if elapsedTime.months === 1}Month{:else}Months{/if}{' '}
+			{/if}
+			{#if elapsedTime.days > 0}
+				{elapsedTime.days}
+				{#if elapsedTime.days === 1}Day{:else}Days{/if}{' '}
+			{/if}
+			{#if elapsedTime.hours > 0}
+				{elapsedTime.hours}
+				{#if elapsedTime.hours === 1}Hour{:else}Hours{/if}{' '}
+			{/if}
+			{#if elapsedTime.minutes > 0}
+				{elapsedTime.minutes}
+				{#if elapsedTime.minutes === 1}Minute{:else}Minutes{/if}{' '}
+			{/if}
+			{#if elapsedTime.seconds > 0}
+				{elapsedTime.seconds}
+				{#if elapsedTime.seconds === 1}Second{:else}Seconds{/if}{' '}
+			{/if}
+			until we get married!
 		{:else}
-			{months} Months
+			{#if elapsedTime.years > 0}
+				{elapsedTime.years}
+				{#if elapsedTime.years === 1}Year{:else}Years{/if}{' '}
+			{/if}
+			{#if elapsedTime.months > 0}
+				{elapsedTime.months}
+				{#if elapsedTime.months === 1}Month{:else}Months{/if}{' '}
+			{/if}
+			{#if elapsedTime.days > 0}
+				{elapsedTime.days}
+				{#if elapsedTime.days === 1}Day{:else}Days{/if}{' '}
+			{/if}
+			{#if elapsedTime.hours > 0}
+				{elapsedTime.hours}
+				{#if elapsedTime.hours === 1}Hour{:else}Hours{/if}{' '}
+			{/if}
+			{#if elapsedTime.minutes > 0}
+				{elapsedTime.minutes}
+				{#if elapsedTime.minutes === 1}Minute{:else}Minutes{/if}{' '}
+			{/if}
+			{#if elapsedTime.seconds > 0}
+				{elapsedTime.seconds}
+				{#if elapsedTime.seconds === 1}Second{:else}Seconds{/if}{' '}
+			{/if}
+			since we got married.
 		{/if}
-		{#if days == 1}
-			{days} Day
-		{:else}
-			{days} Days
-		{/if}
-		{#if hours == 1}
-			{hours} Hour
-		{:else}
-			{hours} Hours
-		{/if}
-		{#if minutes == 1}
-			{minutes} Minute
-		{:else}
-			{minutes} Minutes
-		{/if}
-		{#if seconds == 1}
-			{seconds} Second
-		{:else}
-			{seconds} Seconds
-		{/if}
-		until the wedding day.
 	</h2>
 </div>
 <div class="navContainer">
@@ -102,6 +149,10 @@
 		display: flex;
 		text-align: center;
 		padding: 20px;
+	}
+	.loadingText {
+		color: transparent;
+		text-shadow: 0 0 10px #000;
 	}
 	.navContainer {
 		padding: 20px;
