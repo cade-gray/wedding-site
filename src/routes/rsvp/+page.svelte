@@ -24,42 +24,42 @@
 			);
 		} else {
 			// Submit the form or perform any other action here
-			var formData = {
-				firstName: firstNameValue,
-				lastName: lastNameValue,
-				email: emailValue,
-				attendingYN: attendingYNValue,
-				dietRest: dietRestValue,
-				plusOneYN: p1YNValue,
-				plusOneName: p1NameValue,
-				childrenYN: childrenYNValue,
-				childCount: childCountValue
-			};
+			// var formData = {
+			// 	firstName: firstNameValue,
+			// 	lastName: lastNameValue,
+			// 	email: emailValue,
+			// 	attendingYN: attendingYNValue,
+			// 	dietRest: dietRestValue,
+			// 	plusOneYN: p1YNValue,
+			// 	plusOneName: p1NameValue,
+			// 	childrenYN: childrenYNValue,
+			// 	childCount: childCountValue
+			// };
 
-			// Do something with the formData object (e.g., send it to the server or process it further)
-			const jsonData = JSON.stringify(formData);
+			// // Do something with the formData object (e.g., send it to the server or process it further)
+			// const jsonData = JSON.stringify(formData);
 
-			// Make a POST request using the fetch() function
-			fetch('https://api.cadegray.dev/wedding/guest', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: jsonData
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					submitted = true;
-				})
-				.catch((error) => {
-					// Handle any errors that occurred during the request
-					alert(
-						'There was an error submitting, please contact Cade and Katie and send them this error: ' +
-							error
-					);
-				});
+			// // Make a POST request using the fetch() function
+			// fetch('https://api.cadegray.dev/wedding/guest', {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Content-Type': 'application/json'
+			// 	},
+			// 	body: jsonData
+			// })
+			// 	.then((response) => response.json())
+			// 	.then((data) => {
+			// 		submitted = true;
+			// 	})
+			// 	.catch((error) => {
+			// 		// Handle any errors that occurred during the request
+			// 		alert(
+			// 			'There was an error submitting, please contact Cade and Katie and send them this error: ' +
+			// 				error
+			// 		);
+			// 	});
+			submitted = true;
 		}
-		// Create an object to store the data
 	}
 </script>
 
@@ -161,9 +161,13 @@
 			{/if}
 		{:else}
 			{#if attendingYNValue === 'Y'}
-				<h2 class="thanksText">
+				<!-- <h2 class="thanksText">
 					Thank you for RSVPing {firstNameValue}! We look forward to seeing you on October 28th,
 					2023! Please visit the FAQ page for additonal information
+				</h2> -->
+				<h2 class="thanksText">
+					Thank you for RSVPing {firstNameValue}. Sadly the deadline has passed so this will not be
+					submitted to Cade and Katie. Please reach out to them if needed.
 				</h2>
 			{:else if attendingYNValue === 'N'}
 				<h2 class="thanksText">
