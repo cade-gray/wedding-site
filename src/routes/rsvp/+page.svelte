@@ -171,8 +171,8 @@
 				</h2>
 			{:else if attendingYNValue === 'N'}
 				<h2 class="thanksText">
-					Thank you for RSVPing {firstNameValue}! We wish you could make it but appreciate you
-					taking the time to let us know.
+					Thank you for RSVPing {firstNameValue}. Sadly the deadline has passed so this will not be
+					submitted to Cade and Katie. Please reach out to them if needed.
 				</h2>
 			{/if}
 			<HomeLink />
